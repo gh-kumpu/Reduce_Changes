@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Reduce_Change-01</title>
+        <link rel="stylesheet" href="./style.css">
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+    <body>
+
+        <div id="screan-header">
+
+        </div>
+
+        <div class="inputObject">
+            
+            <p class="title-of-input">Pay Amount</p>
+            <input id="input-entryAmount" type="number" onchange="calculateAddFuelAmount()" placeholder="(Pay Amount)">
+            <div class="input-underline"></div>
+            <p class="title-of-input">Fuel Price [YEN/L]</p>
+            <input id="input-fuelPrice" type="number" onchange="calculateAddFuelAmount()" placeholder="(Fuel Price [Yen/L])">
+            <div class="input-underline"></div>
+            <p class="title-of-input">Fuel Amount [L]</p>
+            <input id="input-fuelAmount" type="number" onchange="calculateAddFuelAmount()" placeholder="(Fuel Amount [L])">
+            <div class="input-underline"></div>
+
+        </div>
+
+        <p></p>
+
+        <div class="result">
+
+            <table id="result-list">
+                <!--
+                <thead>
+                    <th>(num)</th>
+                    <th>Target Fuel Amount</th>
+                    <th>diff.</th>
+                    <th>Price</th>
+                    <th>Changes</th>
+                </thead>
+                -->
+            </table>
+
+        </div>
+
+    </body>
+
+</html>
