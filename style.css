@@ -1,0 +1,116 @@
+#screan-header{
+    height: 10em;
+}
+
+.inputObject{
+    display: flex;
+    flex-direction: column;
+    width: 70%;    
+    padding: auto;
+    margin: auto;
+    
+}
+
+.inputObject input{
+    font-size: 50px;
+    width: auto;
+    padding: 0 0 0 1em;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+.inputObject .input-underline{
+    width: auto;
+    font-size: 50px;
+    margin: 0 0 1em 1em;
+    position: relative; /*.text_underline::beforeの親要素*/
+    border-top: 0.1em solid #c2c2c2; /* inputの下線*/
+}
+
+/*共通のstyle*/
+.inputObject .input-underline::before,
+.inputObject .input-underline::after{
+    position: absolute; 
+    bottom: 0px; /*中央配置*/
+    width: 0px; /*アニメーションで0pxから50%に*/
+    height: 5px; /*高さ*/
+    content: '';
+    background-color: #4287f5; /*アニメーションの色*/
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+}
+
+/*中央から右へのアニメーション*/
+.inputObject .input-underline::before{
+    left: 50%; /*中央配置*/
+}
+
+/*中央から左へのアニメーション*/
+.inputObject .input-underline::after{ 
+    right: 50%; /*中央配置*/
+}
+
+.inputObject input:focus + .input-underline::before,
+.inputObject input:focus + .input-underline::after{
+    width: 50%;
+}
+
+.inputObject p.title-of-input{
+
+    font-size: 25px;
+    display: inline;
+    text-align: left;
+    margin-bottom: 0px;
+
+}
+
+.result{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: auto;
+    margin: 10em auto auto auto;
+    align-items: center;
+}
+
+#result-list{
+    table-layout: auto;
+    width: 100%;
+    align-items: center;
+}
+
+/*
+#result-list th{
+    font-size: 30px;
+    display: inline;
+    text-align: center;
+    padding: 0.5em;
+}
+*/
+
+.table-animation{
+    animation-name:fadeUpAnime;
+    animation-duration:1.5s;
+    animation-fill-mode:forwards;
+    animation-timing-function: ease; 
+    opacity:0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#result-list td{
+    font-size: 35px;
+    text-align: center;
+    padding: 0.5em;
+}
