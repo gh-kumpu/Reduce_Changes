@@ -27,12 +27,12 @@ function calculateAddFuelAmount(){
         for(var i = 0 ; i < divisionPitch.length ; i++){
             priceDiff[i] = divisionPitch[i] - (primalPayAmount % divisionPitch[i]);
             priceNewTarget[i] = primalPayAmount + priceDiff[i];
-            fuelNewTarget[i] = round_SpecifiedDigitsPosition(priceNewTarget[i] * LitreParYEN , 2);
+            fuelNewTarget[i] = floor_SpecifiedDigitsPosition(priceNewTarget[i] * LitreParYEN , 2);  // Pay Plice is Round Up
 
             var row = resultList.insertRow();
             row.insertCell().textContent = i + 1;
             row.insertCell().textContent = fuelNewTarget[i];
-            row.insertCell().textContent = round_SpecifiedDigitsPosition(fuelNewTarget[i] - inputFuelAmount.valueAsNumber , 2);
+            row.insertCell().textContent = floor_SpecifiedDigitsPosition(fuelNewTarget[i] - inputFuelAmount.valueAsNumber , 2);
             row.insertCell().textContent = priceNewTarget[i];
             row.insertCell().textContent = inputEntryAmount.value - priceNewTarget[i];
             
@@ -61,6 +61,12 @@ function round_SpecifiedDigitsPosition(value , position){
     var str_buff_multiply = "e+" + position;
     var str_buff_division = "e-" + position;
     return +(Math.round(value + str_buff_multiply ) + str_buff_division);
+}
+
+function floor_SpecifiedDigitsPosition(value , position){
+    var str_buff_multiply = "e+" + position;
+    var str_buff_division = "e-" + position;
+    return +(Math.floor(value + str_buff_multiply) + str_buff_division);
 }
 
 function resultPattern(){
