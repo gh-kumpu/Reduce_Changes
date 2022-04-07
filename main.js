@@ -25,7 +25,8 @@ function calculateAddFuelAmount(){
         
 
         for(var i = 0 ; i < divisionPitch.length ; i++){
-            priceDiff[i] = divisionPitch[i] - (primalPayAmount % divisionPitch[i]);
+            // priceDiff[i] = divisionPitch[i] - (primalPayAmount % divisionPitch[i]);
+            priceDiff[i] = (inputEntryAmount.value - primalPayAmount) % divisionPitch[i];
             priceNewTarget[i] = primalPayAmount + priceDiff[i];
             fuelNewTarget[i] = floor_SpecifiedDigitsPosition(priceNewTarget[i] * LitreParYEN , 2);  // Pay Plice is Round Up
 
